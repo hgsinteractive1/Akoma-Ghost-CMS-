@@ -1,0 +1,268 @@
+body {
+    min-width: inherit;
+}
+
+#entry-actions {
+    margin-right:0px;
+}
+
+.menu-image {
+    height:100%; 
+    width:100%; 
+    top:0px; 
+    left: 0px; 
+    position:absolute;
+}
+
+/**
+ * Sign in modal
+ **/
+#sign-in-modal {
+    position: fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    background: #000;
+    opacity: 0.96;
+
+    .inner {
+        $modal-inner-size: 400px;
+        text-align: center;
+        width:$modal-inner-size;
+        heifght:$modal-inner-size;
+        position:absolute;
+        top:50%;
+        left:50%;
+        margin-top: -($modal-inner-size / 2.0);
+        margin-left: -($modal-inner-size / 2.0);
+
+        h2 {
+            color:white;
+            padding:5px;
+            font-size:24px;
+            margin-bottom: 15px;
+        }
+
+        span.small {
+            font-size:12px;
+        }
+    }
+}
+
+#user-gate #request-form {
+    background: none!important;
+    div.input-wrapper input {
+        padding:0px!important;
+    }
+}
+
+
+#full-bleed-hero #headline a { 
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.editor {
+	.markdown-editor {
+        position: relative;
+        padding:0px;
+        top:0px;
+        font-family: inherit;
+    }
+
+    #story-detail #story-intro h2 div { 
+        min-height:55px;
+        width:100%;
+    }
+
+    .entry-markdown,
+    .entry-preview {
+        position: relative;
+        top:0px;
+        bottom: 0px;
+        padding: 0px;
+        border: none;
+        background: none;
+        font-family: inherit;
+    }
+
+    .entry-markdown-content {
+        position: relative;
+        margin-top: -7px;
+    }
+
+    .content {
+        min-height:400px;
+        width:100%;
+        height: 100%;
+    }
+}
+
+#container {
+    position: initial;
+}
+
+#gh-main.viewport {
+    position: relative;
+    overflow: inherit;
+}
+
+#story-detail #story-image #upload-container, #story-detail #story-image .image-uploader {
+    padding-top:40px!important;
+    height:145px!important;
+}
+
+.editor #story-detail #story-image img {
+    max-height: 200px;
+    width: auto;
+}
+
+.image-uploader .media:before {
+    display: block;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.image-uploader .hidden, 
+.display-none {
+    display: none;
+}
+
+.label {
+  padding:0px;
+}
+
+#entry-tags .tag {
+    padding:0px;
+    background: inherit;
+    border-radius:inherit;
+    box-shadow:none;
+}
+
+#container {
+    overflow: inherit;
+
+    #primary-nav {
+        background: white;
+    }
+}
+
+body.settings, body.ghost-login {
+    padding-top: 88px;
+
+    #gh-main.viewport {
+        position:absolute;
+    }
+
+    .settings-nav {
+        top: 30px;
+    }
+
+    .settings-menu-container .settings-menu-pane {
+        top: 100px;
+    }
+}
+
+
+#entry-tags .tag {
+    margin-right: 0px;
+}
+#entry-tags .tag:after { 
+    content:'';
+}
+
+body.manage, body.settings {
+    #primary-nav {
+        a#write-story {
+            display: block;
+        }
+        a#finish-writing-story {
+            display: none;
+        }
+    }
+}
+
+#story-detail b { font-weight:bold; }
+#story-detail i {font-style: italic;}
+
+#story-detail #manage-stories-tags ul.tags li.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    text-align: inherit;
+    white-space: inherit;
+    vertical-align: inherit;
+    border-radius: inherit;
+}
+
+#story-detail .editor-placeholder {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index:0;
+    pointer-events: none;
+    color:#999;
+}
+@media only screen and (max-width: 768px) {
+    #story-detail #story-intro h2 {
+        position: relative;
+        margin-left: 30px;
+    }
+}
+
+
+.last-edited strong {
+    font-weight: bold!important;
+}
+
+/**
+ * Grande overrides
+ **/
+.ui-inputs .url-input {
+    font-size:12px;
+}
+.options {
+    width:150px;
+    margin-left: 32px;
+}
+
+.options.url-mode {
+    width:200px;
+    margin-left:7px;
+}
+
+.content blockquote {
+    margin-left:30px;
+}
+
+a.load-more {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+#user-profile-wrapper #profile-stats ul#stats-list li.primary-action a#author-action {
+    color:inherit;
+    text-decoration: inherit;
+}
+
+a.load-more {
+    color:inherit;
+    text-decoration: inherit;
+}
+
+[contenteditable=true] {
+    &:focus {
+        border:none;
+        outline:none;
+    }
+}
+
+.notifications.bottom {
+    z-index:100000000;
+}

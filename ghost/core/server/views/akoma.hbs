@@ -1,0 +1,81 @@
+<!doctype html>
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (gte IE 9)| IEMobile |!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Ghost Admin</title>
+
+    <base href="/" />
+<meta name="ghost/config/environment" content="%7B%22modulePrefix%22%3A%22ghost%22%2C%22environment%22%3A%22development%22%2C%22baseURL%22%3A%22/%22%2C%22locationType%22%3A%22auto%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%7D%2C%22APP%22%3A%7B%22LOG_ACTIVE_GENERATION%22%3Atrue%2C%22LOG_TRANSITIONS%22%3Atrue%2C%22LOG_TRANSITIONS_INTERNAL%22%3Atrue%2C%22LOG_VIEW_LOOKUPS%22%3Atrue%2C%22name%22%3A%22ghost%22%2C%22version%22%3A%220.0.0.e6e70290%22%7D%2C%22contentSecurityPolicyHeader%22%3A%22Content-Security-Policy-Report-Only%22%2C%22contentSecurityPolicy%22%3A%7B%22default-src%22%3A%22%27none%27%22%2C%22script-src%22%3A%22%27self%27%20%27unsafe-eval%27%22%2C%22font-src%22%3A%22%27self%27%22%2C%22connect-src%22%3A%22%27self%27%22%2C%22img-src%22%3A%22%27self%27%22%2C%22style-src%22%3A%22%27self%27%22%2C%22media-src%22%3A%22%27self%27%22%7D%2C%22exportApplicationGlobal%22%3Atrue%7D" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+    <meta name="pinterest" content="nopin" />
+
+    <meta http-equiv="cleartype" content="on" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Ghost" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset "favicon.ico"}}" />
+    <link rel="apple-touch-icon-precomposed" href="{{asset "img/touch-icon-iphone.png" ghost="true"}}" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{asset "img/touch-icon-ipad.png" ghost="true"}}" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{asset "img/small.png" ghost="true"}}" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{asset "img/medium.png" ghost="true"}}" />
+
+    <meta name="application-name" content="Ghost" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-square70x70logo" content="{{asset "img/small.png" ghost="true"}}" />
+    <meta name="msapplication-square150x150logo" content="{{asset "img/medium.png" ghost="true"}}" />
+    <meta name="msapplication-square310x310logo" content="{{asset "img/large.png" ghost="true"}}" />
+
+    {{#each configuration}}
+        <meta name="env-{{this.key}}" content="{{this.value}}" />
+    {{/each}}
+    
+    <link rel="stylesheet" href="{{asset "vendor.css" ghost="true" minifyInProduction="true"}}" />
+    <link rel="stylesheet" href="{{asset "ghost.css" ghost="true" minifyInProduction="true"}}" />
+
+    {{head-includes}}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-63168967-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+<!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("30eb525081fe2b7c8262f9e0f741ed27");</script><!-- end Mixpanel -->
+    
+</head>
+<body data-lazy-load-ghost="true">
+
+
+    <script src="{{asset "js/grande.js" ghost="true" minifyInProduction="true"}}"></script>
+    <script src="{{asset "vendor.js" ghost="true" minifyInProduction="true"}}"></script>
+    <script src="{{asset "ghost.js" ghost="true" minifyInProduction="true"}}"></script>
+    <script type="text/javascript" src="{{asset "js/require.js" ghost="true"}}" data-main="{{asset "js/akoma.js" ghost="true"}}"></script>
+
+<!-- begin usabilla live embed code -->
+<script type="text/javascript">/*{literal}<![CDATA[*/window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+/*]]>{/literal}*/</script>
+<script>
+    var akUsabilla_id;
+    if (window.location.pathname == "/ghost/editor/"){
+        akUsabilla_id = '07c15507ab1b';
+    }
+
+    if (typeof(akUsabilla_id) != "undefined") {
+        window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/"+ akUsabilla_id +".js");
+    }
+</script>
+<!-- end usabilla live embed code -->
+</body>
+</html>

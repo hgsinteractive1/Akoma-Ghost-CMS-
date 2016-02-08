@@ -1,0 +1,106 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+
+
+<div id="story-detail">
+	<!--STORY INTRO AREA-->
+	<div id="story-intro">
+		<h2>{{title}}</h2>
+		<div class="author">
+            {{!-- {{#if author.image}}<img class="author-thumb" src="{{author.image}}" alt="Author image" nopin="nopin" />{{/if}} --}}
+            <div class="author-image" {{#if author.image}}style="background-image:url({{author.image}})"{{/if}}></div>
+            <div class="byline">
+                <p>{{author}} <span>{{date timeago=true}}</span></p>
+            </div>
+        </div>
+
+			<div class="recommend">
+        		{{#if current_user_likes}}
+	                <div class="active heart" data-like-post="{{id}}"></div>
+	            {{else}}
+	                <div class="heart" data-like-post="{{id}}"></div>
+	            {{/if}}
+				<div class="count">{{like_count}}</div>
+			</div>
+			<div class="clear"></div>
+	</div>
+	<!--END STORY INTRO AREA-->
+
+	<!--BEGIN STORY IMAGE-->
+	{{#if image}}
+	<div id="full-bleed-hero" class="story-detail">
+		<!--FLUID IMAGE AREA-->
+		<div id="fluid-image">
+	        <img src="{{image}}" />
+		</div>
+		<!--END FLUID IMAGE AREA-->
+	</div>
+	{{/if}}
+	<!--END STORY IMAGE-->
+	<!--BEGIN STORY BODY-->
+	<div id="story-body">
+		{{{markdown}}}
+	</div>
+	<!--END STORY BODY-->
+	<!--BEGIN STORY-->
+	<div id="story-footer">
+		<div id="social">
+			<div id="share-tools">
+				<ul id="main-share">					
+					<li><a href="#" class="share-button facebook" onclick="FB.ui({method:'share',href:'{{url absolute="true"}}',}, function(response){});return false;">Share <span class="share-lang">on Facebook</span></a></li>
+					<li><a href="https://twitter.com/intent/tweet?text={{encode title}}&via=aKomanet&url={{url absolute="true"}}" class="share-button twitter">Share <span class="share-lang">on Twitter</span></a></li>
+					<li class="last"><div class="plus" id="expand-shares"><span class="vr"></span><span class="hr"></span></div></li>
+				</ul>
+				<div class="clear"></div>
+				<ul id="secondary-share">
+					{{!-- <li><a href="#" class="share-button google-plus"></a></li> --}}
+					{{!-- <li><a href="#" class="share-button linkedIn"></a></li> --}}
+					<li><a href="#" class="share-button email"></a></li>
+				</ul>
+			</div>
+			{{#if current_user_likes}}
+				<a href="#" class="recommend-button active" data-like-post="{{id}}"><div class="heart"></div>Fancied</a>
+			{{else}}
+				<a href="#" class="recommend-button" data-like-post="{{id}}"><div class="heart"></div>Fancy This</a>
+			{{/if}}
+			<div class="clear"></div>
+		</div>
+		<!--STORY META-->
+			<div class="story-meta">
+				<div class="tags">
+					<p>Posted in:</p>
+					<ul>
+						<li>
+							{{tags separator="</li><li>" css_class="tag"}}
+						</li>
+					</ul>
+				</div>
+				<div class="clear"></div>
+			</div>
+		<!--END STORY META-->
+	</div>
+	<!--END STORY FOOTER-->
+
+
+</div>
+<!--END STORY DETAIL-->
+<!-- mixpanel events object -->
+<script>
+	akEvents.name = "Post View";
+	akEvents.properties.story_title = "{{title}}";
+	akEvents.properties.read_time = "{{readTime}}";
+    {{#if ../ssoUser}}
+		akEvents.properties.reader_id = "{{../../ssoUser.attributes.social_id}}";
+    {{/if}}
+</script>
+<!-- begin usabilla button id -->
+<script>
+    var akUsabilla_id = '802732bf4d1e';
+</script>
+<!-- end usabilla button id -->
+
+{{/post}}

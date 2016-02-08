@@ -1,0 +1,46 @@
+<!--STORY INTRO AREA-->
+<div id="story-intro">
+    <h2>{{model.title}}</h2>
+</div>
+<!--END STORY INTRO AREA-->
+
+<!--INSERT MANAGE STORY ACTIONS-->
+<div id="manage-story-actions">
+    <ul class="actions">
+        <li>
+            {{#link-to "editor.edit" model class="post-edit action"}} Edit<div class="edit-story-icon"></div>{{/link-to}}
+        </li>
+        <li><a href="#" class="action" {{action "togglePublish"}}>{{if model.isPublished "Hide" "Show"}} <div class="{{if model.isPublished "hide" "show"}}-story-icon"></div></a></li>
+        <li><a href="#" class="action" {{action "openModal" "delete-post" this}}>Delete<div class="delete-story-icon"></div></a></li>
+        {{#if canFeature}}
+            <li class="last">
+                {{#if isFeaturedInCurrentTag}}
+                    <a href="#" class="action" {{action "unfeature"}}>Unfeature<div class="feature-story-icon"></div></a>
+                {{else}}
+                    <a href="#" class="action" {{action "feature"}}>Feature<div class="feature-story-icon"></div></a>
+                {{/if}}
+            </li>
+        {{/if}}
+    </ul>
+</div>
+
+<!--MANAGE STORIES TAGS-->
+<div id="manage-stories-tags">
+    {{render 'post-tags-input'}}
+</div>
+
+<!--END MANAGE STORIES TAGS-->
+<!--END MANAGE STORY ACTIONS-->
+
+<!--BEGIN STORY IMAGE-->
+<div id="story-image">
+    {{#if model.image}}
+        <img src="{{model.image}}" />
+    {{/if}}
+</div>
+<!--END STORY IMAGE-->
+<!--BEGIN STORY BODY-->
+<div id="story-body">
+    {{{model.markdown}}}
+</div>
+<!--END STORY BODY-->

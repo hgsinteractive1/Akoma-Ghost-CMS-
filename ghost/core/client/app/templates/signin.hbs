@@ -1,0 +1,37 @@
+{{!-- <section class="login-box js-login-box fade-in">
+    <form id="login" class="login-form" method="post" novalidate="novalidate" {{action 'validateAndAuthenticate' on='submit'}}>
+        <div class="email-wrap">
+            <span class="input-icon icon-mail">
+                {{gh-trim-focus-input class="email" type="email" placeholder="Email Address" name="identification" autocapitalize="off" autocorrect="off" value=model.identification}}
+            </span>
+        </div>
+        <div class="password-wrap">
+            <span class="input-icon icon-lock">
+                {{input class="password" type="password" placeholder="Password" name="password" value=model.password}}
+            </span>
+        </div>
+        <button class="btn btn-blue" type="submit" {{action "validateAndAuthenticate"}} disabled={{submitting}}>Log in</button>
+        <section class="meta">
+            <button {{action 'forgotten'}} class="forgotten-link btn btn-link">Forgotten password?</button>
+        </section>
+    </form>
+</section>
+ --}}
+<script type="text/javascript">
+    $(function(){
+        if(!localStorage["ghost:session"]) {
+            $.post("/auth/user/signin", {}, function(data){
+                localStorage.setItem("ghost:session", JSON.stringify({
+                    "authenticator":"simple-auth-authenticator:oauth2-password-grant",
+                    "token_type":data.token_type,
+                    "expires_in": data.expires_in,
+                    "expires_at": new Date((new Date().getTime() + data.expires_in)),
+                    "access_token": data.access_token,
+                    "refresh_token":data.refresh_token
+                }));
+                window.location = document.referrer ? document.referrer : "/ghost";
+            }).fail(function(err){
+            });
+        }
+    });
+</script>

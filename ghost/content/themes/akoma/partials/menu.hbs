@@ -1,0 +1,47 @@
+<!--MENU OVERLAY-->
+<div id="main-menu-wrapper" class="hidden">
+	<div id="overlay-background"></div>
+	<div class="relative">
+		<div id="menu-content">
+			<div class="eyebrow">on aKoma</div>
+			<!--BEGIN FILTER NAV-->
+			<ul id="filter-nav">
+				<li><a href="/" class="filter-nav-link">FAVES<div class="filter-nav-icon faves"></div></a></li>
+				<li><a href="/latest" class="filter-nav-link">LATEST<div class="filter-nav-icon latest"></div></a></li>
+				<li class="last"><a href="/popular" class="filter-nav-link popular">POPULAR<div class="filter-nav-icon popular"></div></a></li>
+			</ul>
+			<!--END FILTER NAV-->
+			<ul id="primary-menu">
+				<li>
+					<a href="/tag/{{allTags.Live.attributes.slug}}" class="primary-menu-link">Live
+					<span>{{allTags.Live.attributes.description}}</span>
+					</a>
+				</li>
+				<li class="margin-rt-none">
+					<a href="/tag/{{allTags.Think.attributes.slug}}" class="primary-menu-link">Think
+					<span>{{allTags.Think.attributes.description}}</span>
+					</a>
+				</li>
+				<li>
+					<a href="/tag/{{allTags.Rant.attributes.slug}}" class="primary-menu-link">Rant
+					<span>{{allTags.Rant.attributes.description}}</span>
+					</a>
+				</li>
+				<li class="margin-rt-none">
+					<a href="/tag/{{allTags.Learn.attributes.slug}}" class="primary-menu-link">Learn
+					<span>{{allTags.Learn.attributes.description}}</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>	
+</div>
+<!--END MENU OVERLAY-->
+
+<a href="#" id="menu-icon">
+	<div id="relative">
+		<div class="menu-bar one"></div>
+		<div class="menu-bar two"></div>
+		<div class="menu-bar three"></div>
+	</div>
+</a>

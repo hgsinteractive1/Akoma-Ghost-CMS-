@@ -1,0 +1,130 @@
+{{!< default}}
+
+{{! Everything inside the #author tags pulls data from the author }}
+{{#author}}
+
+    <div id="user-profile-wrapper">
+        <div id="profile-overview">
+            <div id="avatar-wrapper">
+                <div id="avatar" {{#if image}}style="background-image:url({{image}})" {{else}} style="background:#ccc;" {{/if}}></div>
+            </div>
+            <div id="profile-summary">
+                <h3 id="username">{{name}}</h3>
+                <input type="text" name="name" id="username-input" value="{{name}}">
+
+                <p class="overview">
+                    <div class="overview">
+                        {{#if location}} from <span id="country-text">{{location}}</span>{{/if}}
+                        <select id="country" name="location">
+                            <option value="">Select a country</option>
+                            <option>Kenya</option>
+                            <option>Nigeria</option>
+                            <option>Rwanda</option>
+                            <option>Ghana</option>
+                            <option>South Africa</option>
+                            <option>Ethiopia</option>
+                            <option>Canada</option>
+                            <option>UK</option>
+                            <option>US</option>
+                            <option>Other - Africa</option>
+                            <option>Other</option>
+                        </select>
+                        {{#if location}} | {{/if}}
+                        {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}
+                    </div>
+                </p>
+                <p id="bio" class="bio">{{bio}}</p>
+                <textarea name="bio" id="bio-textarea">{{bio}}</textarea>
+            </div>
+            <div class="clear"></div>   
+        </div>
+        <div id="profile-stats">
+            <ul id="stats-list">
+                {{!-- <li>
+                    <h4>Followers</h4>
+                    <p class="stat">27</p>
+                </li>
+                <li>
+                    <h4>Following</h4>
+                    <p class="stat">13</p>
+                </li> --}}
+                <li class="social">
+                    <h4>On Social</h4>
+                    <a href="{{ssoUser.getSocialUrl}}" target="_blank" id="on-social-{{ssoUser.attributes.network}}"></a>
+                </li>
+                <li class="primary-action">
+
+                        <!--FOLLOW ICON-->
+                        
+                        <!--<a id="author-action">
+                            <div class="relative">
+                                Follow
+                                <div class="icon follow">
+                                    <div class="bar-one"></div>
+                                    <div class="bar-two"></div>
+                                </div>
+                            </div>
+                        </a>-->
+                        <!--END FOLLOW ICON-->
+
+                        <!--FOLLOWING ICON-->
+                        
+                        <!--<a id="author-action">
+                            <div class="relative">
+                                Following
+                                <div class="icon following">
+                                    
+                                </div>
+                            </div>
+                        </a>-->
+
+                        <!--END FOLLOWING ICON-->
+
+                        <!--BEGIN EDIT PROFILE ICON-->
+                        {{#if ../canEdit}}
+                            <!--BEGIN EDIT PROFILE ICON-->
+                            <a id="author-action" class="edit-profile-button">
+                                <div class="relative">
+                                    Edit Profile
+                                    <div class="icon edit-profile">
+                                        
+                                    </div>
+                                </div>
+                            </a>
+                            <!--END EDIT PROFILE ICON-->
+                            <!--BEGIN SAVE/EDIT BUTTONS-->
+                            <ul id="manage-edits-buttons">
+                                <li class="manage-edit-button-list"><a href="#" class="manage-edits-button" id="cancel-edits">Cancel</a></li>
+                                <li class="manage-edit-button-list no-margin"><a href="#" class="manage-edits-button" id="save-edits">Save</a></li>
+                            </ul>
+                            <!--END SAVE/EDIT BUTTONS-->
+                        {{/if}}
+                        <!--END EDIT PROFILE ICON-->
+                </li>
+            </ul>
+        </div>
+        {{!-- <div id="recommended-header">
+            <h3>You've Recommended <span>24</span> stories</h3>
+        </div> --}}
+    </div>
+    <!--END-->
+<!-- mixpanel event context -->
+<script>
+    akEvents.name = "Author View";
+    akEvents.properties.author_name = "{{name}}";
+    {{#if ../ssoUser}}
+        akEvents.properties.reader_id = "{{../../ssoUser.attributes.social_id}}";
+    {{/if}}
+</script>
+<!-- begin usabilla button id -->
+<script>
+    var akUsabilla_id = 'f2f0667ef7bf';
+</script>
+<!-- end usabilla button id -->
+{{/author}}
+
+
+    <div id="main-story-feed">
+        {{> "loop"}}
+    </div>
+    

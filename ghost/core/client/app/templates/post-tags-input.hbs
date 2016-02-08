@@ -1,0 +1,13 @@
+
+<ul class="tag-list tags">
+    <li class="label"><h4>Tag your story:</h4></li>
+    {{#each tag in controller.displayTagNames}}
+        <li class="tag">
+            {{#if (gh-in-array tag controller.tags)}}
+                <a href="#" class="tag active" {{action "toggleTag" tag  }}>{{tag}}</a>
+            {{else}}
+                <a href="#" class="tag" {{action "toggleTag" tag  }}>{{tag}}</a>
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>
